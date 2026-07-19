@@ -1,4 +1,5 @@
-# COMPUX uchun asosiy paketlar ro'yxati
+initramfs-tools
+linux-image-generic# COMPUX uchun asosiy paketlar ro'yxati
 # Bu fayl live-build tomonidan avtomatik o'qiladi va shu paketlar tizimga o'rnatiladi
 
 ## Asosiy ish stoli muhiti (yengil, tezkor, mo'ljalga oson)
