@@ -36,7 +36,13 @@ jobs:
             --debian-installer false
 
       - name: COMPUX ISO yig'ish
-        run: sudo lb build
+        run: |
+          sudo lb build || true
+          if ! ls *.iso 1> /dev/null 2>&1; then
+            echo "Birinchi urinish muvaffaqiyatsiz, tozalab qayta urinamiz"
+            sudo find chroot/boot -xtype l -delete 2>/dev/null || true
+            sudo lb build
+          fi
 
       - name: ISO faylni tayyorlash
         run: |
