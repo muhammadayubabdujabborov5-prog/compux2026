@@ -1,6 +1,4 @@
 name: COMPUX ISO qurish
-
-on:
   workflow_dispatch: {}
   push:
     branches: [ main ]
