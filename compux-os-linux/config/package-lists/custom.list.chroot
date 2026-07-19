@@ -15,7 +15,6 @@ xfce4-taskmanager
 
 ## Oyna boshqaruvchi effektlar (Windows'dagi kabi soyalar, animatsiyalar)
 xfwm4
-xfwm4-themes
 compton
 
 ## Windows'ga o'xshash tashqi ko'rinish (tema, ikonalar, kursor)
@@ -32,7 +31,6 @@ calamares
 calamares-settings-debian
 
 ## Kundalik kerakli dasturlar (Windows dasturlariga o'xshash vazifalarni bajaradi)
-firefox-esr
 libreoffice
 gimp
 vlc
@@ -55,6 +53,7 @@ gnome-software-plugin-flatpak
 flatpak
 
 ## Windows dasturlarini (.exe) ishga tushirish uchun
+epiphany-browser
 wine
 winetricks
 playonlinux
@@ -76,8 +75,7 @@ cryptsetup
 ## Tizimni tiklash / zaxira nusxa (System Restore o'rnida)
 timeshift
 
-## Til va klaviatura (o'zbekcha)
-language-pack-uz
+## Til va klaviatura (o'zbekcha)у
 language-selector-gnome
 
 ## Masofaviy ish stoli (Remote Desktop - server va mijoz)
