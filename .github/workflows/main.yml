@@ -18,7 +18,8 @@ jobs:
           find compux-os-linux/config/hooks/live -type f -name "*.hook.chroot" -exec chmod +x {} \; 2>/dev/null || true
 
       - name: Qurilish vositalarini o'rnatish
-        run: |
+        run:- name: Eski keshni tozalash
+        run: rm -rf compux-os-linux/cache compux-os-linux/.build compux-os-linux/chroot 2>/dev/null || true
           sudo apt-get update
           sudo apt-get install -y live-build debootstrap squashfs-tools xorriso isolinux syslinux-efi grub-pc-bin grub-efi-amd64-bin mtools dosfstools
 
