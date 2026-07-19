@@ -28,7 +28,7 @@ jobs:
           lb config \
             --distribution jammy \
             --archive-areas "main restricted universe multiverse" \
-            --binary-images iso-hybrid \
+            
             --iso-application "COMPUX" \
             --iso-volume "COMPUX" \
             --linux-flavours generic \
@@ -41,7 +41,7 @@ jobs:
         run: sudo lb build
 
       - name: ISO faylni tayyorlash
-        run: |
+        run: --binary-images iso \
           mkdir -p output
           find compux-os-linux -maxdepth 1 -iname "*.iso" -exec mv {} output/COMPUX.iso \;
 
