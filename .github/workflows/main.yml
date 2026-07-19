@@ -34,7 +34,7 @@ jobs:
             --linux-flavours generic \
             --apt-recommends false \
             --debian-installer false \
-          --bootloaders grub-efi,grub-pc
+          --bootloader grub-efi,grub-pc
 
       - name: COMPUX ISO yig'ish
         working-directory: compux-os-linux
