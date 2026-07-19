@@ -24,7 +24,7 @@ jobs:
 
       - name: live-build sozlash
         working-directory: compux-os-linux
-        run: |
+        run:--binary-images iso \
           lb config \
             --distribution jammy \
             --archive-areas "main restricted universe multiverse" \
