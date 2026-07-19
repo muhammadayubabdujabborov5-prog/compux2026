@@ -24,11 +24,11 @@ jobs:
 
       - name: live-build sozlash
         working-directory: compux-os-linux
-        run:--binary-images iso \
+        run:
           lb config \
             --distribution jammy \
+            --binary-images iso \
             --archive-areas "main restricted universe multiverse" \
-            
             --iso-application "COMPUX" \
             --iso-volume "COMPUX" \
             --linux-flavours generic \
@@ -41,7 +41,7 @@ jobs:
         run: sudo lb build
 
       - name: ISO faylni tayyorlash
-        run: --binary-images iso \
+        run:
           mkdir -p output
           find compux-os-linux -maxdepth 1 -iname "*.iso" -exec mv {} output/COMPUX.iso \;
 
