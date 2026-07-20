@@ -13,9 +13,20 @@ jobs:
       - name: Loyihani yuklab olish
         uses: actions/checkout@v4
 
+      - name: GitHub Actions Disk joyini kengaytirish (Maksimal bo'sh joy ochish)
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: false
+
       - name: Eski keshni tozalash
         run: |
-          rm -rf compux-os-linux/cache compux-os-linux/.build compux-os-linux/chroot 2>/dev/null || true
+          sudo rm -rf compux-os-linux/cache compux-os-linux/.build compux-os-linux/chroot 2>/dev/null || true
 
       - name: Ruxsatlarni to'g'rilash
         run: |
@@ -29,7 +40,7 @@ jobs:
       - name: live-build sozlash
         working-directory: compux-os-linux
         run: |
-          lb config \
+          sudo lb config \
             --distribution jammy \
             --binary-images iso \
             --archive-areas "main restricted universe multiverse" \
@@ -38,16 +49,24 @@ jobs:
             --linux-flavours generic \
             --apt-recommends false \
             --debian-installer false \
-            --bootloader isolinux,grub-efi
+            --bootloader isolinux,grub-efi \
+            --mirror-bootstrap "http://ubuntu.com" \
+            --mirror-binary "http://ubuntu.com"
 
       - name: COMPUX ISO yig'ish
         working-directory: compux-os-linux
         run: sudo lb build
 
-      - name: ISO faylni tayyorlash
+      - name: ISO faylni tayyorlash (Rufus va Fleshka uchun moslash)
         run: |
           mkdir -p output
-          find compux-os-linux -maxdepth 1 -iname "*.iso" -exec mv {} output/COMPUX.iso \;
+          ISO_FILE=$(find compux-os-linux -maxdepth 1 -iname "*.iso" | head -n 1)
+          if [ -n "$ISO_FILE" ]; then
+            sudo isohybrid "$ISO_FILE" || true
+            mv "$ISO_FILE" output/COMPUX.iso
+          else
+            echo "Xatolik: ISO fayli topilmadi!" && exit 1
+          fi
 
       - name: ISO faylni yuklab olish uchun saqlash
         uses: actions/upload-artifact@v4
