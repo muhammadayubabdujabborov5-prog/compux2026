@@ -31,7 +31,7 @@ jobs:
         run: |
           lb config \
             --distribution jammy \
-            --binary-images iso  \
+            --binary-images iso-hybrid
             --archive-areas "main restricted universe multiverse" \
             --iso-application "COMPUX" \
             --iso-volume "COMPUX" \
