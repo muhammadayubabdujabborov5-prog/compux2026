@@ -31,14 +31,14 @@ jobs:
         run: |
           lb config \
             --distribution jammy \
-            --binary-images iso \
+            --binary-images iso-hybrid \
             --archive-areas "main restricted universe multiverse" \
             --iso-application "COMPUX" \
             --iso-volume "COMPUX" \
             --linux-flavours generic \
             --apt-recommends false \
             --debian-installer false \
-            --bootloader grub-efi,grub-pc
+            --bootloader grub-efi
 
       - name: COMPUX ISO yig'ish
         working-directory: compux-os-linux
