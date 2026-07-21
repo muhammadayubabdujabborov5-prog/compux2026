@@ -50,7 +50,7 @@ jobs:
             --linux-flavours generic \
             --apt-recommends false \
             --debian-installer false \
-            --bootloaders isolinux,grub-efi \
+            --bootloader isolinux,grub-efi \
             --bootstrap debootstrap \
             --mirror-bootstrap http://archive.ubuntu.com/ubuntu \
             --mirror-binary http://archive.ubuntu.com/ubuntu \
