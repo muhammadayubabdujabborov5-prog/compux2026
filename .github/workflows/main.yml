@@ -67,7 +67,6 @@ jobs:
           mkdir -p output
           ISO_FILE=$(find compux-os-linux -maxdepth 1 -iname "*.iso" | head -n 1)
           if [ -n "$ISO_FILE" ]; then
-            sudo isohybrid "$ISO_FILE" || true
             mv "$ISO_FILE" output/COMPUX.iso
           else
             echo "Xatolik: ISO fayli topilmadi!" && exit 1
