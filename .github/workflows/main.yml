@@ -51,15 +51,12 @@ jobs:
             --apt-recommends false \
             --debian-installer false \
             --bootloaders isolinux,grub-efi \
---mirror-bootstrap http://archive.ubuntu.com/ubuntu \
---mirror-binary http://archive.ubuntu.com/ubuntu \
---mirror-chroot http://archive.ubuntu.com/ubuntu \
---mirror-chroot-security http://security.ubuntu.com/ubuntu \
---mirror-binary-security http://security.ubuntu.com/ubuntu
             --bootstrap debootstrap \
-            --mirror-bootstrap "http://ubuntu.com" \
-            --mirror-chroot "http://ubuntu.com" \
-            --mirror-binary "http://ubuntu.com"
+            --mirror-bootstrap http://archive.ubuntu.com/ubuntu \
+            --mirror-binary http://archive.ubuntu.com/ubuntu \
+            --mirror-chroot http://archive.ubuntu.com/ubuntu \
+            --mirror-chroot-security http://security.ubuntu.com/ubuntu \
+            --mirror-binary-security http://security.ubuntu.com/ubuntu
 
       - name: COMPUX ISO yig'ish
         working-directory: compux-os-linux
